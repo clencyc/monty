@@ -1,5 +1,4 @@
 #include "monty.h"
-
 stack_t *header = NULL;
 
 /**
