@@ -38,4 +38,6 @@ char *opcode;
 void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *header;
+
 #endif /*The monty maker*/
