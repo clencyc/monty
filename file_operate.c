@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 /**
 * file_opener - The function that is going to be used to open the file
