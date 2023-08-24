@@ -11,7 +11,6 @@ void file_reader(FILE *file_d)
 {
 int fm = 0, ln;
 char *linep = NULL, buffer[MAX_LINE_LENGTH];
-size_t n = 0;
 
 if (file_d == NULL)
 error_output(2, "f_name");
@@ -21,14 +20,11 @@ for (ln = 1; fgets(buffer, sizeof(buffer), file_d) != NULL; ln++)
 {
 buffer[strcspn(buffer, "\n")] = '\0';
 linep = buffer;
-n = strlen(linep);
 fm = file_manage_r(linep, ln, fm);
+
 }
-
-
 free(linep);
 }
-
 /**
 * file_manage_r - The function that is going to be used to manage the file
 *                 by reading the file line by line
