@@ -22,19 +22,18 @@ case 6:
 fprintf(stderr, "L%d: can't pint, stack empty\n",
 va_arg(args, unsigned int));
 break;
-
 case 7:
-fprintf(stderr, "L%d: can't pop an empty stack:%s\n",
+fprintf(stderr, "L%d: can't
+pop an empty stack\n",
 va_arg(args, unsigned int));
 break;
-
 case 8:
 line_nu = va_arg(args, unsigned int);
 error_mess = va_arg(args, char *);
-fprintf(stderr, "L%d: can't swap, stack too short:%s\n",
+fprintf(stderr, "L%d: can't swap,
+stack too short\n",
 line_nu, error_mess);
 break;
-
 case 9:
 line_nu = va_arg(args, unsigned int);
 error_mess = va_arg(args, char *);
@@ -45,7 +44,6 @@ break;
 default:
 break;
 }
-
 nodes_free();
 exit(EXIT_FAILURE);
 }
