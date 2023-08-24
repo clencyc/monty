@@ -10,13 +10,13 @@
 void file_reader(FILE *file_d)
 {
 int fm = 0, ln;
-char *linep = NULL;
+char *linep = NULL, buffer[MAX_LINE_LENGTH];
 size_t n = 0;
 
 if (file_d == NULL)
 error_output(2, "f_name");
 
-char buffer[MAX_LINE_LENGTH];
+
 for (ln = 1; fgets(buffer, sizeof(buffer), file_d) != NULL; ln++)
 {
 buffer[strcspn(buffer, "\n")] = '\0';
