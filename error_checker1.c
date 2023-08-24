@@ -24,14 +24,14 @@ va_arg(args, unsigned int));
 break;
 
 case 7:
-fprintf(stderr, "L%d: can't pop an empty stack\n",
+fprintf(stderr, "L%d: can't pop an empty stack:%s\n",
 va_arg(args, unsigned int));
 break;
 
 case 8:
 line_nu = va_arg(args, unsigned int);
 error_mess = va_arg(args, char *);
-fprintf(stderr, "L%d: can't swap, stack too short\n",
+fprintf(stderr, "L%d: can't swap, stack too short:%s\n",
 line_nu, error_mess);
 break;
 
