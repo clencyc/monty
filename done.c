@@ -1,21 +1,29 @@
 #include "monty.h"
 
+#define MAX_LINE_LENGTH 1024
+
 /**
 * file_reader - The function that is going to be used to read the file
 * @file_d: The file descriptor that is going to be used to read the file
 */
+
 void file_reader(FILE *file_d)
 {
 int fm = 0, ln;
-
 char *linep = NULL;
 size_t n = 0;
 
 if (file_d == NULL)
 error_output(2, "f_name");
 
-for (ln = 1; getline(&linep, &n, file_d) != -1; ln++)
+char buffer[MAX_LINE_LENGTH];
+for (ln = 1; fgets(buffer, sizeof(buffer), file_d) != NULL; ln++)
+{
+buffer[strcspn(buffer, "\n")] = '\0';
+linep = buffer;
+n = strlen(linep);
 fm = file_manage_r(linep, ln, fm);
+}
 
 
 free(linep);
