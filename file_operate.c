@@ -1,5 +1,6 @@
 #include "monty.h"
 #include <stdio.h>
+stack_t *header = NULL;
 
 /**
 * file_opener - The function that is going to be used to open the file
