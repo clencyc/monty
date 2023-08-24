@@ -40,4 +40,33 @@ void (*f)(stack_t **stack, unsigned int line_number);
 
 extern stack_t *header;
 
+typedef void (*opti_func)(stack_t **, unsigned int);
+
+void error_output(unsigned int code_err, ...);
+void more_errors(unsigned int code_err, ...);
+void nodes_free(void);
+stack_t *the_node(int n);
+
+void pusher_in(stack_t **, unsigned int);
+
+void file_opener(char *);
+void file_reader(FILE *);
+
+void paller_in(stack_t **, unsigned int);
+
+void looking_for_opcode(char *, char *, int, int);
+int file_manage_r(char *, int, int);
+void poper_in(stack_t **, unsigned int);
+void queue_adding(stack_t **, unsigned int);
+void pinter_in(stack_t **, unsigned int);
+
+void fuc_calling(opti_func, char *, char *, int, int);
+
+void suber_in(stack_t **stack, unsigned int lline_n);
+void  divideer_in(stack_t **stack, unsigned int lline_n);
+
+void swaper_in(stack_t **stack, unsigned int line_number);
+void noper_in(stack_t **stack, unsigned int line_number);
+void adder_in(stack_t **stack, unsigned int lline_n);
+
 #endif /*The monty maker*/
