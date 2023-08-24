@@ -1,6 +1,4 @@
 #include "monty.h"
-#include <stdio.h>
-stack_t *header = NULL;
 
 /**
 * file_opener - The function that is going to be used to open the file
@@ -56,12 +54,9 @@ size_t n = 0;
 if (file_d == NULL)
 error_output(2, "f_name");
 
-do {
-ln++;
-getline(&linep, &n, file_d);
+for (ln = 1; getline(&linep, &n, file_d) != -1; ln++)
 fm = file_manage_r(linep, ln, fm);
 
-} while (getline(&linep, &n, file_d) != EOF);
 
 free(linep);
 }
@@ -107,7 +102,7 @@ return (fm);
 * looking_for_opcode - The function that is going to be execute
 * @opcode: The opcode operation
 * @cm_d: The value opt
-* @line_nu: the number
+* @line_nu: The line number that is going to be used to read the file
 * @fm: Specifier
 */
 void looking_for_opcode(char *opcode, char *cm_d, int line_nu, int fm)
@@ -150,12 +145,12 @@ error_output(3, line_nu, opcode);
 /**
 * fuc_calling - The function that is going to be used to call the function
 * @f: The function that is going to be used to call the function
-*
 * @cm_d: The value opt
+* @op_i: The opcode operation
 * @fm: Specifier
-* @op_i: operation
 * @line_nu: The line number that is going to be used to read the file
 */
+
 void fuc_calling(opti_func f, char *op_i, char *cm_d, int line_nu, int fm)
 {
 stack_t *new_node;
@@ -188,8 +183,6 @@ f(&new_node, line_nu);
 if (fm == 1)
 queue_adding(&new_node, line_nu);
 } while (isdigit(cm_d[i]));
-
-
 
 
 }
